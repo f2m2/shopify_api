@@ -1,6 +1,6 @@
 <?php
 
-	namespace f2m2\shopify_api;
+	namespace sandeepshetty\shopify_api;
 	//require 'vendor/autoload.php';
 
 
