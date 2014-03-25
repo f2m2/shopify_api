@@ -4,10 +4,10 @@
 	//require 'vendor/autoload.php';
 
 
-	function install_url($shop, $api_key)
+	function install_url($shop, $api_key, $redirect_url='')
 	{
 		//return "http://$shop/admin/api/auth?api_key=$api_key";
-		return "http://$shop/admin/oauth/authorize?client_id=$api_key&scope=read_orders,write_orders";
+		return "http://$shop/admin/oauth/authorize?client_id=$api_key&scope=read_orders,write_orders&redirect_uri=".$redirect_url;
 	}
 
 
