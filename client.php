@@ -6,7 +6,8 @@
 
 	function install_url($shop, $api_key)
 	{
-		return "http://$shop/admin/api/auth?api_key=$api_key";
+		//return "http://$shop/admin/api/auth?api_key=$api_key";
+		return "http://$shop/admin/oauth/authorize?client_id=$api_key&scope=read_orders,write_orders";
 	}
 
 
@@ -15,7 +16,7 @@
 		if(!isset($query_params['timestamp']) || !isset($query_params['signature'])) {
 			return false;
 		}
-		
+
 		$seconds_in_a_day = 24 * 60 * 60;
 		$older_than_a_day = $query_params['timestamp'] < (time() - $seconds_in_a_day);
 		if ($older_than_a_day) return false;
