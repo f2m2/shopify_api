@@ -110,6 +110,7 @@
 
 
 	class CurlException extends \Exception { }
+	class ApiException extends \Exception { }
 	class Exception extends \Exception
 	{
 		protected $info;
