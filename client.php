@@ -72,7 +72,8 @@
 			}
 			catch(WcurlException $e)
 			{
-				throw new CurlException($e->getMessage(), $e->getCode());
+				//throw new CurlException($e->getMessage(), $e->getCode());
+				throw new Exception($e->getMessage());
 			}
 
 			$response = json_decode($response, true);
@@ -112,20 +113,20 @@
 		}
 
 
-	class CurlException extends \Exception { }
-	class ApiException extends \Exception { }
-	class Exception extends \Exception
-	{
-		protected $info;
-
-		function __construct($info)
-		{
-			$this->info = $info;
-			parent::__construct($info['response_headers']['http_status_message'], $info['response_headers']['http_status_code']);
-		}
-
-		function getInfo() { $this->info; }
-	}
+	// class CurlException extends \Exception { }
+	// class ApiException extends \Exception { }
+	// class Exception extends \Exception
+	// {
+	// 	protected $info;
+	//
+	// 	function __construct($info)
+	// 	{
+	// 		$this->info = $info;
+	// 		parent::__construct($info['response_headers']['http_status_message'], $info['response_headers']['http_status_code']);
+	// 	}
+	//
+	// 	function getInfo() { $this->info; }
+	// }
 
 
 	function legacy_token_to_oauth_token($shops_token, $shared_secret, $private_app=false)
