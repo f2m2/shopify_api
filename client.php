@@ -73,13 +73,13 @@
 			catch(WcurlException $e)
 			{
 				//throw new CurlException($e->getMessage(), $e->getCode());
-				throw new Exception($e->getMessage());
+				throw new \Exception($e->getMessage());
 			}
 
 			$response = json_decode($response, true);
 
 			if (isset($response['errors']) or ($response_headers['http_status_code'] >= 400))
-					throw new Exception($response['errors']['key'][0]);
+					throw new \Exception($response['errors']['key'][0]);
 					//dd(compact('method', 'path', 'params', 'response_headers', 'response', 'shops_myshopify_domain', 'shops_token'));
 					//throw new ApiException(compact('method', 'path', 'params', 'response_headers', 'response', 'shops_myshopify_domain', 'shops_token'));
 					//throw new ApiException($response['errors']);
