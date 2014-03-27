@@ -78,7 +78,8 @@
 			$response = json_decode($response, true);
 
 			if (isset($response['errors']) or ($response_headers['http_status_code'] >= 400))
-					dd(compact('method', 'path', 'params', 'response_headers', 'response', 'shops_myshopify_domain', 'shops_token'));
+					dd($response['errors']);
+					//dd(compact('method', 'path', 'params', 'response_headers', 'response', 'shops_myshopify_domain', 'shops_token'));
 					//throw new ApiException(compact('method', 'path', 'params', 'response_headers', 'response', 'shops_myshopify_domain', 'shops_token'));
 					//throw new ApiException($response['errors']);
 
