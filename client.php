@@ -80,9 +80,9 @@
 
 			// or ($response_headers['http_status_code'] >= 400)
 			if (isset($response['errors'])) {
-				dd($response['errors']);
 				$errors = $response['errors'];
 				$errorKeys = array_keys($errors);
+				dd($errorKeys);
 				throw new \Exception($errorKeys[0]. '' .$errors[0]);
 			}
 
