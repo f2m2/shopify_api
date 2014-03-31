@@ -78,10 +78,13 @@
 
 			$response = json_decode($response, true);
 
-			if (isset($response['errors']) or ($response_headers['http_status_code'] >= 400))
-					$errors = $response['errors'];
-					$errorKeys = array_keys($errors);
-					throw new \Exception($errorKeys[0]. '' .$errors[0]);
+			// or ($response_headers['http_status_code'] >= 400)
+			if (isset($response['errors'])) {
+				$errors = $response['errors'];
+				$errorKeys = array_keys($errors);
+				throw new \Exception($errorKeys[0]. '' .$errors[0]);
+			}
+
 					//dd(compact('method', 'path', 'params', 'response_headers', 'response', 'shops_myshopify_domain', 'shops_token'));
 					//throw new ApiException(compact('method', 'path', 'params', 'response_headers', 'response', 'shops_myshopify_domain', 'shops_token'));
 					//throw new ApiException($response['errors']);
